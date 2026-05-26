@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>은혜로운 사역 홈페이지</title>
+    <style>
+        /* [CSS 영역] 웹사이트의 디자인(인테리어)을 담당합니다 */
+        :root {
+            --primary-color: #4A5568; /* 차분하고 신뢰감을 주는 짙은 회색/푸른빛 */
+            --accent-color: #81E6D9; /* 따뜻하고 부드러운 포인트 색상 */
+            --bg-color: #F7FAFC;
+            --text-color: #2D3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            scroll-behavior: smooth; /* 부드러운 화면 이동 */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 네비게이션 바 */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 공통 섹션 스타일 */
+        section {
+            padding: 100px 5% 60px;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* 메인 배너 (Hero) */
+        #home {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1438283173091-5dbf5c5a3206?auto=format&fit=crop&q=80') center/cover;
+            color: white;
+            min-height: 100vh;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: white;
+        }
+
+        /* 말씀 카드 그리드 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* 하단 영역 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#home" class="logo">빛과 소금 교회</a> <nav>
+            <ul>
+                <li><a href="#home">환영합니다</a></li>
+                <li><a href="#about">사역 소개</a></li>
+                <li><a href="#sermons">최근 말씀</a></li>
+                <li><a href="#contact">오시는 길</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>당신을 축복합니다</h1>
+        <p>"수고하고 무거운 짐 진 자들아 다 내게로 오라 내가 너희를 쉬게 하리라" (마 11:28)</p>
+        <a href="#contact" class="btn">예배 시간 안내</a>
+    </section>
+
+    <section id="about">
+        <h2>사역 소개</h2>
+        <p style="max-width: 800px; font-size: 1.1rem; color: #4a5568;">
+            저희는 말씀의 본질에 충실하며, 이웃을 향한 사랑을 실천하는 따뜻한 공동체입니다. <br>
+            누구나 편안하게 와서 위로를 얻고 삶의 회복을 경험할 수 있도록 돕고 있습니다.
+        </p>
+    </section>
+
+    <section id="sermons">
+        <h2>최근 말씀</h2>
+        <div class="grid">
+            <div class="card" onclick="alert('말씀 영상 링크로 이동합니다.')">
+                <h3 id="sermon-title-1">믿음의 여정</h3>
+                <p>2026년 5월 24일 주일 설교</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #718096;">로마서 1장 16-17절</p>
+            </div>
+            <div class="card" onclick="alert('말씀 영상 링크로 이동합니다.')">
+                <h3>소망을 품는 삶</h3>
+                <p>2026년 5월 17일 주일 설교</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #718096;">베드로전서 1장 3-4절</p>
+            </div>
+            <div class="card" onclick="alert('말씀 영상 링크로 이동합니다.')">
+                <h3>사랑의 실천</h3>
+                <p>2026년 5월 10일 주일 설교</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #718096;">요한일서 4장 7-11절</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: white;">
+        <h2>예배 안내 및 오시는 길</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>예배 시간</h3>
+                <p><strong>주일 예배:</strong> 오전 11:00</p>
+                <p><strong>수요 예배:</strong> 오후 7:30</p>
+                <p><strong>새벽 기도:</strong> 매일 오전 5:30</p>
+            </div>
+            <div class="card">
+                <h3>연락처 및 위치</h3>
+                <p><strong>전화:</strong> 02-123-4567</p>
+                <p><strong>이메일:</strong> pastor@gracechurch.com</p>
+                <p><strong>주소:</strong> 서울특별시 평화구 사랑동 123-45</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 빛과 소금 교회. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 메뉴 클릭 시 부드럽게 스크롤 되도록 하는 스크립트 (기본 내장되어 추가 설정 불필요)
+        console.log("웹사이트가 성공적으로 로드되었습니다.");
+        
+        // 여기에 주보 다운로드 기능이나 성경 구절 매일 바꾸기 기능 등을 추가할 수 있습니다.
+    </script>
+</body>
+</html>
